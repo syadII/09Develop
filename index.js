@@ -50,4 +50,4 @@ function init() {inquirer
 }
 
 // Function call to initialize app
-init();
+generateMarkdown();
