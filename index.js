@@ -18,36 +18,36 @@ const questions = [
     name: 'description',
     message: 'What is the description of this project',
 },
-]
+];
 
 // TODO: Create an array of questions for user input
-inquirer
-.prompt(questions)
-.then((answers) => {
+// inquirer
+// .prompt(questions)
+// .then((answers) => {
     
-    console.log(answers);
+//     console.log(answers);
 
     
 // TODO: Create a function to write README file
-fs.writeToFile('output.md', markdownText) 
-    return `# ${answers}`
-})
-
+function writeToFile(fileName, data) {
+fs.writeFile(fileName, generateMarkdown(data)) 
+    // return `# ${answers}`;
+}
 // TODO: Create a function to initialize app
 function init() {inquirer
     .prompt(questions)
     .then((answers) => {
-        
-        console.log(answers);
+        writeToFile('output.md',answers)
     
         
     // TODO: Create a function to write README file
-    fs.writeToFile('output.md', markdownText) 
-        return `# ${answers}`
-    })
+    // fs.writeToFile('output.md', markdownText) 
+    //     return `# ${answers}`
+    // })
     
 
+});
 }
 
 // Function call to initialize app
-generateMarkdown();
+init();
